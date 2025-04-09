@@ -61,6 +61,9 @@ def query(message, history):
         }
     ]
     
+    # If you're reading this, maybe consider normalizing chunk sizes or limiting the number of chunks based on the token limit.
+    # Or you could just leave it at graceful error handling... That works just as well, I guess...
+
     try:
         response = client.chat.completions.create(
             model="gpt-4o",
