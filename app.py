@@ -88,7 +88,7 @@ def query(message, history):
         print(f"Query: '{message}'")
         print(f"Input Tokens: {sum([4 + len(encoding.encode(message['content'])) for message in messages])}")
 
-        response = "Your query was unable to be completed due to an OpenAI rate limitation. This query has been logged and will be investigated promptly."
+        response = "Your query was unable to be completed due to an OpenAI rate limitation. Please try again later."
 
         partial_response = ""
 
