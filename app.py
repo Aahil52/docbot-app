@@ -30,7 +30,7 @@ def search_index(query, k=5):
 def query(message, history):
     top_k_chunks = search_index(message)
 
-    context = [json.dumps(chunk["raw_yaml"]) for chunk in top_k_chunks]
+    context = [json.dumps(chunk["raw_yaml"], indent=4) for chunk in top_k_chunks]
     context_str = "\n\n".join(context)
 
     sources = list({chunk["source"] for chunk in top_k_chunks if chunk["source"] != ""})
@@ -79,4 +79,4 @@ demo = gr.ChatInterface(
     type="messages"
 )
 
-demo.launch(share=True)
+demo.launch()
